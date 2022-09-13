@@ -9,41 +9,41 @@ import {
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <View style={styles.helloView}>
-        <Text style={styles.text}>Hello world</Text>
-        <TextInput style={styles.input} placeholder={"Enter some text"} />
+    <View style={styles.appContainer}>
+      <View style={styles.inputContainer}>
+        <TextInput placeholder="add pet name" style={styles.textInput} />
+        <Button title="Add pet" />
       </View>
-      <Text style={styles.text}>Another Hello world Text</Text>
-      <Button title="Hello there" color={"green"} />
+
+      <View>
+        <Text>Pet Names</Text>
+      </View>
     </View>
   );
 }
 
-// this approach has auto-completion support
+// Flex box and layouts
+/* 
+flex: n (n is an int which tells that element/container to expand to occupy the
+ available space)
+flexDirection: row|column (controls the orientation of the Main axis or Cross axis)
+
+*/
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+  appContainer: {
+    padding: 50,
   },
-  helloView: {
-    width: Dimensions.get("screen").width * 0.9,
+  inputContainer: {
+    // flex: 0,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    // backgroundColor: "green ",
   },
-  input: {
-    borderWidth: 2,
-    borderColor: "#abe12c",
-    color: "black",
-    padding: 15,
-    margin: 10,
-    backgroundColor: "#ccc",
-  },
-  text: {
-    fontSize: 24,
-    margin: 10,
-    borderColor: "blue",
+  textInput: {
     borderWidth: 1,
-    padding: 7,
+    borderColor: "#eee",
+    padding: 5,
+    marginRight: 5,
+    width: "80%",
   },
 });

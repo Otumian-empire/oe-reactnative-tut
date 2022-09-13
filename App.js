@@ -15,7 +15,7 @@ export default function App() {
         <Button title="Add pet" />
       </View>
 
-      <View>
+      <View style={styles.petsContainer}>
         <Text>Pet Names</Text>
       </View>
     </View>
@@ -31,13 +31,22 @@ flexDirection: row|column (controls the orientation of the Main axis or Cross ax
 */
 const styles = StyleSheet.create({
   appContainer: {
-    padding: 50,
+    flex: 1,
+    paddingTop: 50,
+    paddingHorizontal: 16,
   },
   inputContainer: {
-    // flex: 0,
+    flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
     // backgroundColor: "green ",
+    alignItems: "center",
+    marginBottom: 24,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ccc",
+  },
+  petsContainer: {
+    flex: 5,
   },
   textInput: {
     borderWidth: 1,

@@ -6,6 +6,7 @@ import {
   TextInput,
   View,
   FlatList,
+  Pressable,
 } from "react-native";
 
 export default function App() {
@@ -23,10 +24,17 @@ export default function App() {
     }
   };
 
+  const handleRemove = (index) => {
+    petNames.splice(index, 1);
+    setPetNames([...petNames]);
+  };
+
   const renderItem = (props) => (
-    <View key={props.index} style={styles.item}>
-      <Text style={styles.text}>{props.item}</Text>
-    </View>
+    <Pressable onPress={() => handleRemove(props.index)}>
+      <View key={props.index} style={styles.item}>
+        <Text style={styles.text}>{props.item}</Text>
+      </View>
+    </Pressable>
   );
 
   return (
@@ -34,11 +42,12 @@ export default function App() {
       <View style={styles.inputContainer}>
         <TextInput
           placeholder="add pet name"
+          placeholderTextColor={"#c7b6b0"}
           style={styles.textInput}
           onChangeText={handleTextChange}
           value={petName}
         />
-        <Button title="Add pet" onPress={handleButtonPress} color={"black"} />
+        <Button title="Add pet" onPress={handleButtonPress} color={"#59CE8F"} />
       </View>
 
       <View style={styles.petsContainer}>
@@ -56,7 +65,8 @@ const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
     paddingTop: 50,
-    paddingHorizontal: 16,
+    paddingHorizontal: 20,
+    backgroundColor: "#ff1e00",
   },
   inputContainer: {
     flex: 1,
@@ -76,17 +86,18 @@ const styles = StyleSheet.create({
     padding: 5,
     marginRight: 5,
     width: "80%",
+    color: "#E8F9FD",
   },
   item: {
     padding: 15,
     marginBottom: 15,
     borderWidth: 1,
-    borderColor: "black",
+    borderColor: "#E8F9FD",
     borderRadius: 50,
     backgroundColor: "#000",
   },
   text: {
-    color: "white",
+    color: "#E8F9FD",
     fontSize: 16,
   },
 });

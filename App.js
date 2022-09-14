@@ -1,12 +1,10 @@
 import { useState } from "react";
 import {
   Button,
-  Dimensions,
   StyleSheet,
   Text,
   TextInput,
   View,
-  ScrollView,
   FlatList,
 } from "react-native";
 
@@ -44,21 +42,8 @@ export default function App() {
       </View>
 
       <View style={styles.petsContainer}>
-        {/* <ScrollView alwaysBounceVertical={false}>
-          {petNames.map((name, index) => (
-            <View key={index} style={styles.item}>
-              <Text style={styles.text}>{name}</Text>
-            </View>
-          ))}
-        </ScrollView> */}
-
         <FlatList
           data={petNames}
-          // renderItem={(pet) => (
-          //   <View key={pet.index} style={styles.item}>
-          //     <Text style={styles.text}>{pet.item}</Text>
-          //   </View>
-          // )}
           renderItem={renderItem}
           alwaysBounceVertical={false}
         ></FlatList>
@@ -77,7 +62,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    // backgroundColor: "green ",
     alignItems: "center",
     marginBottom: 24,
     borderBottomWidth: 1,
